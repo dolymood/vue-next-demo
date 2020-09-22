@@ -1,26 +1,57 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <!-- <pre>{{$attrs}}</pre> -->
+    <!-- <pre>{{$route}}</pre> -->
+    <div id="nav">
+      <a href="javascript:;" v-for="conf in routes" :key="conf.path"  @click="goto(conf.path)">{{ conf.path }}</a>
+    </div>
+    <component :is="view" />
+    <div id="modal-container"></div>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import { defineComponent, reactive, computed, ref, markRaw } from 'vue'
+import compositionConf from './router/composition'
+import classicConf from './router/classic'
+import transitionConf from './router/transition'
 
 export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
+  setup () {
+    const current = ref('/')
+    const routes = reactive(markRaw([{ path: '/' }].concat(compositionConf, classicConf, transitionConf)))
+    const view = computed(() => {
+      let currentComponent = ''
+      routes.forEach((route) => {
+        if (route.path === current.value) {
+          currentComponent = route.component
+        }
+      })
+      return currentComponent
+    })
+    function goto (path) {
+      current.value = path
+    }
+    return {
+      routes,
+      view,
+      goto
+    }
   }
 })
 </script>
 
 <style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+#nav
+  a
+    display block
+/* reset */
+html body
+  font-size: 16px
+  line-height: unset
+  background: unset
+  color: unset
+  min-width: 0
+  max-width: none
+  margin: auto
 </style>

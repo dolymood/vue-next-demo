@@ -1,15 +1,23 @@
 {
-  "name": "vue3-demo",
+  "name": "vue-next-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0-0"
+    "marked": "^1.1.1",
+    "todomvc-app-css": "^2.3.0",
+    "vue": "^3.0.0",
+    "vue-reactivity-polyfill": "^0.1.1",
+    "vue-reactivity-polyfill-getownpropertynames": "0.0.2",
+    "vue-router": "^4.0.0-beta.11",
+    "vue3-plugin-polyfill": "^0.1.0",
+    "whatwg-fetch": "^3.4.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",
@@ -18,7 +26,7 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0-0",
+    "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "eslint": "^6.7.2",
@@ -27,8 +35,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0-0",
+    "patch-package": "^6.2.2",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "typescript": "~3.9.3"
+    "typescript": "~4.0.2"
   }
 }

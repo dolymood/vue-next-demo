@@ -1,0 +1,19 @@
+version: 2.1
+
+step_install_deps: &install_deps
+  run:
+    name: Install Dependencies
+    command: npm i
+
+jobs:
+  build-push:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run: sh scripts/deploy.sh
+
+workflows:
+  build:
+    jobs:
+      - build-push
