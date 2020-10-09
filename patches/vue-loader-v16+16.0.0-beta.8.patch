@@ -1,7 +1,7 @@
-diff --git a/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/hotReload.js b/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/hotReload.js
+diff --git a/node_modules/vue-loader-v16/dist/hotReload.js b/node_modules/vue-loader-v16/dist/hotReload.js
 index 575c22f..a243360 100644
---- a/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/hotReload.js
-+++ b/node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/hotReload.js
+--- a/node_modules/vue-loader-v16/dist/hotReload.js
++++ b/node_modules/vue-loader-v16/dist/hotReload.js
 @@ -7,7 +7,7 @@ function genHotReloadCode(id, templateRequest) {
  /* hot reload */
  if (module.hot) {

@@ -6,8 +6,8 @@ then
   echo "No need to build"
   exit 0
 else
-  npm i
-  npm run build
+  yarn
+  yarn build
   git config --global user.email "dolymood@gmail.com"
   git config --global user.name "dolymood"
   git add .
