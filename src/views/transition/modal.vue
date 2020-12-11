@@ -4,11 +4,11 @@
       <button id="show-modal" @click="showModal = true">Show Modal</button>
       <teleport to="#modal-container">
         <!-- use the modal component, pass in the prop -->
-        <modal :show="showModal" @close="showModal = false">
+        <modal-x :show="showModal" @close="showModal = false">
           <template #header>
             <h3>custom header</h3>
           </template>
-        </modal>
+        </modal-x>
       </teleport>
     </div>
   </div>
@@ -18,7 +18,7 @@
 import Modal from './modal/modal'
 
 export default {
-  components: { Modal },
+  components: { ModalX: Modal },
   data: () => ({
     showModal: false
   })
