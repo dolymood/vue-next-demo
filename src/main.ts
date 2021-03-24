@@ -9,7 +9,7 @@ const polyfillPlugin = createPolyfillPlugin()
 
 const app = createApp(App, {
   myroot: 1,
-  xRoot: 2
+  xRoot: 3
 })
 
 app.use(polyfillPlugin).mount('#app')
